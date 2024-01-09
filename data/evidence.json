@@ -1,0 +1,177 @@
+[{
+  "_id": {
+    "$oid": "658007bfddda46e5bdb90a3b"
+  },
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger6.png",
+  "name": "Aisha Khan",
+  "description": "Middle-aged South Asian female with wavy hair and an inquisitive expression."
+},
+{
+  "_id": {
+    "$oid": "658007bfddda46e5bdb90a36"
+  },
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger1.png",
+  "name": "John Doe",
+  "description": "Middle-aged Caucasian male with short hair and a stern expression."
+},
+{
+  "_id": {
+    "$oid": "658007bfddda46e5bdb90a37"
+  },
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger2.png",
+  "name": "Jane Smith",
+  "description": "Young Black female with curly hair and a thoughtful expression."
+},
+{
+  "_id": {
+    "$oid": "658007bfddda46e5bdb90a38"
+  },
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger3.png",
+  "name": "Carlos Gomez",
+  "description": "Elderly Hispanic male with balding hair and a friendly expression."
+},
+{
+  "_id": {
+    "$oid": "658007bfddda46e5bdb90a39"
+  },
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger4.png",
+  "name": "Ling Chen",
+  "description": "Young Asian female with long straight hair and a serious expression."
+},
+{
+  "_id": {
+    "$oid": "658007bfddda46e5bdb90a3a"
+  },
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger5.png",
+  "name": "Mark Johnson",
+  "description": "Tall Caucasian male with medium-length hair and a confident expression."
+},
+{
+  "_id": {
+    "$oid": "658039f3ddda46e5bdb90a3d"
+  },
+  "suspect": "suspect1",
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/suspect1.png",
+  "itemsFound": [
+    "broken watch",
+    "torn piece of paper",
+    "small electronic device"
+  ],
+  "date": "2023-12-18",
+  "alibi": "Was at the movies"
+},
+{
+  "_id": {
+    "$oid": "658039f3ddda46e5bdb90a40"
+  },
+  "suspect": "suspect4",
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/suspect4.png",
+  "itemsFound": [
+    "digital tablet",
+    "pair of earbuds",
+    "notebook with scribbled notes"
+  ],
+  "date": "2023-12-18",
+  "alibi": "Working late at the office"
+},
+{
+  "_id": {
+    "$oid": "658039f3ddda46e5bdb90a3f"
+  },
+  "suspect": "suspect3",
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/suspect3.png",
+  "itemsFound": [
+    "old photograph",
+    "vintage pocket watch",
+    "handwritten letter"
+  ],
+  "date": "2023-12-18",
+  "alibi": "Visiting family"
+},
+{
+  "_id": {
+    "$oid": "658039f3ddda46e5bdb90a41"
+  },
+  "suspect": "suspect5",
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/suspect5.png",
+  "itemsFound": [
+    "silver bracelet",
+    "book of puzzles",
+    "set of keys"
+  ],
+  "date": "2024-01-24",
+  "alibi": "At a yoga class"
+},
+{
+  "_id": {
+    "$oid": "658039f3ddda46e5bdb90a42"
+  },
+  "suspect": "suspect6",
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/suspect6.png",
+  "itemsFound": [
+    "flash drive",
+    "foreign currency",
+    "sunglasses"
+  ],
+  "date": "2024-01-24",
+  "alibi": "On a hiking trip"
+},
+{
+  "_id": {
+    "$oid": "658039f3ddda46e5bdb90a3e"
+  },
+  "suspect": "suspect2",
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/suspect2.png",
+  "itemsFound": [
+    "unique keychain",
+    "pair of sunglasses",
+    "map with marked locations"
+  ],
+  "date": "2023-12-18",
+  "alibi": "Attending a conference"
+},
+{
+  "_id": {
+    "$oid": "65803f14ddda46e5bdb90a44"
+  },
+  "location": "hospital",
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/hospital.png",
+  "fingerprints": [
+    "finger1.png",
+    "finger2.png",
+    "finger3.png"
+  ]
+},
+{
+  "_id": {
+    "$oid": "6587e26fd3b0a9b21161ab15"
+  },
+  "name": "Additional forensics",
+  "description": "silver bracelet"
+},
+{
+  "_id": {
+    "$oid": "6587e2e1d3b0a9b21161ab16"
+  },
+  "name": "Additional forensics",
+  "details": "silver bracelet"
+},
+{
+  "_id": {
+    "$oid": "658d34a5ddda46e5bdb90a6a"
+  },
+  "location": "lake",
+  "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/lake.png",
+  "fingerprints": [
+    "finger4.png",
+    "finger5.png",
+    "finger6.png"
+  ]
+},
+{
+  "_id": {
+    "$oid": "658d36ecddda46e5bdb90a6b"
+  },
+  "name": "Additional forensics",
+  "details": "keys"
+}]

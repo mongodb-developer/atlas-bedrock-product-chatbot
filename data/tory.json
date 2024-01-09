@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "6582ab7eddda46e5bdb90a48"
+  },
+  "stage": 0,
+  "expectedDirection": "find location of the crime",
+  "targetObjectIds": [
+    "658d34a5ddda46e5bdb90a6a"
+  ],
+  "rejection": "The uploaded sentence or image is not pointing to the crime scene unfortenatly",
+  "solution": "Upload the image called 'lake.png'"
+},
+{
+  "_id": {
+    "$oid": "6582acffddda46e5bdb90a51"
+  },
+  "stage": 1,
+  "expectedDirection": "find finger print of potential criminal",
+  "targetObjectIds": [
+    "658007bfddda46e5bdb90a39",
+    "658007bfddda46e5bdb90a3a",
+    "658007bfddda46e5bdb90a3b"
+  ],
+  "rejection": "The uploaded is probably not resulting in the needed findings",
+  "solution": "Upload image called finger6.png and then the description of that suspect"
+},
+{
+  "_id": {
+    "$oid": "6582eafbd3b0a9b21161ab0a"
+  },
+  "stage": 2,
+  "expectedDirection": "find the picture of potential suspect",
+  "targetObjectIds": [
+    "658039f3ddda46e5bdb90a41"
+  ],
+  "rejection": "The uploaded is probably not resulting in the needed findings, please try a different evidence",
+  "rollbackStage": 1
+},
+{
+  "_id": {
+    "$oid": "6587e374d3b0a9b21161ab1a"
+  },
+  "stage": 3,
+  "expectedDirection": "Search for the evidence from the suspect to find the silver breclet to located the criminal",
+  "targetObjectIds": [
+    "6587e2e1d3b0a9b21161ab16"
+  ],
+  "rejection": "The belongings should lead to the suspect that was the criminal",
+  "finish": "You found the criminal : suspect5 - Aisha",
+  "solution": "Search for the 'silver braclet' as it is part of the stolen goods"
+}]
