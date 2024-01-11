@@ -8,7 +8,7 @@
     "658d34a5ddda46e5bdb90a6a"
   ],
   "rejection": "The uploaded sentence or image is not pointing to the crime scene unfortenatly",
-  "solution": "Upload the image called 'location1.png'"
+  "solution": "Upload the image called 'lake.png'"
 },
 {
   "_id": {
@@ -34,8 +34,7 @@
     "658039f3ddda46e5bdb90a41"
   ],
   "rejection": "The uploaded is probably not resulting in the needed findings, please try a different evidence",
-  "rollbackStage": 1,
-  "solution": "Dedcribe the suspect with the descrition provided to locate him."
+  "rollbackStage": 1
 },
 {
   "_id": {
