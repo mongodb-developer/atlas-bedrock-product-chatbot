@@ -289,7 +289,7 @@ export default {
         });
         imageAnalysisEffect();
         const response = await axios.post(
-          'https://eu-west-1.aws.data.mongodb-api.com/app/bedrocktest-bgwan/endpoint/getImageSearch',
+         `${process.env.VUE_APP_BASE_APP_SERVICE_URL}/endpoint/${process.env.VUE_APP_SEARCH_ENDPOINT}`,
           { image: base64, player : props.player.name },
           { headers: { 'Content-Type': 'application/json' } }
         );
