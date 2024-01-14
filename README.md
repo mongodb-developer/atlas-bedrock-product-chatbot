@@ -19,6 +19,11 @@ Install `serve` :
 npm install serve -g
 ```
 
+Build the app:
+```
+npm run build
+```
+
 Run project: 
 ```
 serve -d dist/

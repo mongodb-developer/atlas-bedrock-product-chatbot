@@ -6,7 +6,7 @@
     </div>
     <hr>
     <canvas ref="canvas" style="display:none;"></canvas>
-    <div class="chat-messages">
+    <div class="chat-messages" ref="chatMessages">
       <!-- Messages will be displayed here -->
       <div v-for="message in messages" :key="message.id" class="message">
           <img v-if="message.type==='image'" :src="message.text" alt="Image"  class="image-uploaded"/>
@@ -19,6 +19,9 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="message" v-if="loading">
+        <img class="ai-message loading-image" src="../assets/dribble-dots.gif" alt="Loading" />
       </div>
     </div>
     <div class="message-input">
@@ -36,7 +39,7 @@
 </template>
 
 <script>
-import { ref , onMounted} from 'vue';
+import { ref, onMounted, onUpdated } from 'vue';
 import axios from 'axios';
 import confetti from 'canvas-confetti';
 
@@ -62,7 +65,14 @@ export default {
     const newMessage = ref(''); // The new message to send
     const fileInput = ref(null); // Reference to the file input element
     let medalAward = false;
+    let loading = ref(false);
+    const chatMessages = ref(null);
 
+    const scrollToBottom = () => {
+      if (chatMessages.value) {
+        chatMessages.value.scrollTop = chatMessages.value.scrollHeight;
+      }
+    };
     
     const playConfetti = () => {
     const duration = 30 * 1000; // Duration of the confetti effect in milliseconds
@@ -115,7 +125,9 @@ export default {
           type : 'text',
           sender: 'User'
         });
+        loading.value = true;
         await generateMedal(inputMsg);
+        loading.value = false;
         enableAllButtons();
         return;
 
@@ -128,13 +140,11 @@ export default {
           type : 'text',
           sender: 'User'
         });
-      
+        loading.value = true;
         console.log('VUE_APP_BASE_APP_SERVICE_URL', process.env.VUE_APP_BASE_APP_SERVICE_URL)
         console.log('VUE_APP_SEARCH_ENDPOINT', process.env.VUE_APP_SEARCH_ENDPOINT)
         const response = await axios.post(
          `${process.env.VUE_APP_BASE_APP_SERVICE_URL}/endpoint/${process.env.VUE_APP_SEARCH_ENDPOINT}`,
-          //'https://eu-west-1.aws.data.mongodb-api.com/app/bedrocktest-bgwan/endpoint/getItems',
-          // 'https://eu-west-1.aws.data.mongodb-api.com/app/bedrocktest-bgwan/endpoint/getImageSearch',
           { text: inputMsg , player : props.player.name},
           { headers: { 'Content-Type': 'application/json' } }
         );
@@ -162,14 +172,19 @@ export default {
 
           playConfetti();
         }
+        loading.value = false;
         await axios.post(
-          'https://eu-west-1.aws.data.mongodb-api.com/app/bedrocktest-bgwan/endpoint/saveChats',
+          `${process.env.VUE_APP_BASE_APP_SERVICE_URL}/endpoint/${process.env.VUE_APP_SAVE_CHATS_ENDPOINT}`,
           { player : props.player.name, messages: messages.value },
           { headers: { 'Content-Type': 'application/json' } }
         );
+        
       }
       enableAllButtons();
+
     } catch (error) {
+      enableAllButtons();
+      loading.value = false;
       console.error('Error uploading message:', error);
       messages.value.push({
           id: Date.now(), // Unique ID for the message
@@ -190,7 +205,6 @@ export default {
 
         const medalResponse = await axios.post(
           `${process.env.VUE_APP_BASE_APP_SERVICE_URL}/endpoint/${process.env.VUE_APP_MEDAL_ENDPOINT}`,
-         //'https://eu-west-1.aws.data.mongodb-api.com/app/bedrocktest-bgwan/endpoint/getMedal',
           { player : props.player.name, text: msgText },
           { headers: { 'Content-Type': 'application/json' } }
         );
@@ -260,21 +274,13 @@ export default {
           sender: 'AI'
         });
 
-    setTimeout(() => {
-      messages.value.push({
-          id: Date.now(), // Unique ID for the message
-          text: 'Analysing embedding against the database...', // The message text
-          type : 'text',
-          sender: 'AI'
-        });
-      
-    }, 30000);
 
     }
 
     // Function to send the image to the server
     const sendImage = async (base64) => {
       try {
+        loading.value = true;
         messages.value.push({
           id: Date.now(), // Unique ID for the message
           text: `data:image/png;base64,${base64}`, // The message text
@@ -296,12 +302,16 @@ export default {
           type: 'json',
           sender: 'AI'
         });
+        loading.value = false;
         await axios.post(
-          'https://eu-west-1.aws.data.mongodb-api.com/app/bedrocktest-bgwan/endpoint/saveChats',
+          `${process.env.VUE_APP_BASE_APP_SERVICE_URL}/endpoint/${process.env.VUE_APP_SAVE_CHATS_ENDPOINT}`,
           { player : props.player.name, messages: messages.value },
           { headers: { 'Content-Type': 'application/json' } }
         );
+        
       } catch (error) {
+        loading.value = false;
+        enableAllButtons();
         console.error('Error uploading image:', error);
         messages.value.push({
           id: Date.now(), // Unique ID for the message
@@ -322,9 +332,13 @@ export default {
 
     });
 
+    onUpdated(scrollToBottom);
+
     return {
       messages,
+      chatMessages,
       newMessage,
+      loading,
       sendMessage,
       triggerFileInput,
       onFileChange,
@@ -344,6 +358,12 @@ export default {
   margin: auto;
   border: 1px solid #ddd;
   background-color: #f9f9f9;
+}
+
+.loading-image {
+  width: 300px;
+  height: 100px;
+  object-fit: contain;
 }
 
 .chat-messages {

@@ -28,8 +28,10 @@
             alert('Please enter a valid player name and email address');
             return;
           }
+          console.log('registering player');
+          console.log('VUE_APP_BASE_APP_SERVICE_URL', process.env.VUE_APP_BASE_APP_SERVICE_URL);
+          console.log('VUE_APP_REGISTER_ENDPOINT', process.env.VUE_APP_REGISTER_ENDPOINT);
           const response = await axios.post(
-            //'https://eu-west-1.aws.data.mongodb-api.com/app/bedrocktest-bgwan/endpoint/registerPlayer',
             `${process.env.VUE_APP_BASE_APP_SERVICE_URL}/endpoint/${process.env.VUE_APP_REGISTER_ENDPOINT}`,
             { player: this.playerName, email: this.email }
           );
