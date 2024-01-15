@@ -361,8 +361,8 @@ export default {
 }
 
 .loading-image {
-  width: 300px;
-  height: 100px;
+  width: 500px;
+  height: 300px;
   object-fit: contain;
 }
 
