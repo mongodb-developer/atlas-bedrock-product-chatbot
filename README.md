@@ -1,6 +1,6 @@
 # Bedrock and Atlas vector crime scene demo
 
-Repository for the AWS Bedrock and Atlas Vector search workshop. Please make sure to complete all backend steps 
+Repository for the AWS Bedrock and Atlas Vector search [workshop](https://mongodb-developer.github.io/atlas-bedrock-crime-story-workshop/). Please make sure to complete all backend steps.
 
 ## Using Github codespaces 
 Lunch a github codespace conntainer.
