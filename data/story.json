@@ -3,25 +3,34 @@
     "$oid": "6582ab7eddda46e5bdb90a48"
   },
   "stage": 0,
-  "expectedDirection": "find location of the crime",
+  "expectedDirection": [
+    "find location of the crime",
+    "Look into the evidence folder and try to find a helpful document",
+    "Have you looked into the location images",
+    "Is there an image of a lake that can be uploaded"
+  ],
   "targetObjectIds": [
     "658d34a5ddda46e5bdb90a6a"
   ],
   "rejection": "The uploaded sentence or image is not pointing to the crime scene unfortenatly",
-  "solution": "Upload the image called 'lake.png'"
+  "solution": "Upload the image called 'location1.png'"
 },
 {
   "_id": {
     "$oid": "6582acffddda46e5bdb90a51"
   },
   "stage": 1,
-  "expectedDirection": "find finger print of potential criminal",
+  "expectedDirection": [
+    "find finger print of potential criminal",
+    "Look at one finger prints are related to scene in the evidence foolder",
+    "You should upload one of the finger prints , maybe one of the last ones",
+    "See if image like fingerprint[6].png is at hand",
+    "I think you should try the 6th finger print"
+  ],
   "targetObjectIds": [
-    "658007bfddda46e5bdb90a39",
-    "658007bfddda46e5bdb90a3a",
     "658007bfddda46e5bdb90a3b"
   ],
-  "rejection": "The uploaded is probably not resulting in the needed findings",
+  "rejection": "The uploaded is probably not resulting in the needed findings as there is no criminal record",
   "solution": "Upload image called finger6.png and then the description of that suspect"
 },
 {
@@ -29,19 +38,29 @@
     "$oid": "6582eafbd3b0a9b21161ab0a"
   },
   "stage": 2,
-  "expectedDirection": "find the picture of potential suspect",
+  "expectedDirection": [
+    "find the picture of potential suspect",
+    "See if by the provided info we can search the database",
+    "AI can search people by describing",
+    "You should be able to use the description of the suspect",
+    "Search for the full description"
+  ],
   "targetObjectIds": [
     "658039f3ddda46e5bdb90a41"
   ],
-  "rejection": "The uploaded is probably not resulting in the needed findings, please try a different evidence",
-  "rollbackStage": 1
+  "rejection": "The uploaded is probably not resulting in the needed findings, please try a different evidence"
 },
 {
   "_id": {
     "$oid": "6587e374d3b0a9b21161ab1a"
   },
   "stage": 3,
-  "expectedDirection": "Search for the evidence from the suspect to find the silver breclet to located the criminal",
+  "expectedDirection": [
+    "Search for the evidence from the suspect",
+    "Does the suspect poses an incriminating item",
+    "See that the suspect has a bracelet",
+    "Maybe lets search the 'Silver Bracelet' finding"
+  ],
   "targetObjectIds": [
     "6587e2e1d3b0a9b21161ab16"
   ],

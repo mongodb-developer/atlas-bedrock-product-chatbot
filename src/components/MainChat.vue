@@ -1,11 +1,15 @@
 <template>
     
   <div class="chat-app">
-    <div class="header">
+    
+    <canvas ref="canvas" style="display:none;"></canvas>
+    <div class="app-container">
+     
+      <div class="chat-container">
+        <div class="header">
       <h2>Investigation Database Assistant</h2>
     </div>
     <hr>
-    <canvas ref="canvas" style="display:none;"></canvas>
     <div class="chat-messages" ref="chatMessages">
       <!-- Messages will be displayed here -->
       <div v-for="message in messages" :key="message.id" class="message">
@@ -13,10 +17,17 @@
           
         <div v-if="message.type==='text'" class="user-message"><b>{{ message.sender }}:</b>{{ message.text }} <a v-if="message.link" :href="message.link" target="_blank">Download</a></div>
         <div v-if="message.documents" class="ai-message"><b>{{ message.sender }}:</b>
-          <div v-for="document in message.documents" :key="document"  class="json-message">
-            <div v-for="field in Object.keys(document)" :key="field" >
-              <div v-if="field !== '_id' && field !== 'imgUrl'" class="field"><b>{{ field }} : </b>{{ document[field] }}</div>
-            </div>
+          <div class="retrieved-documents">
+          <div v-for="document in message.documents" :key="document"  class="" >
+            <div class="assistant-message">{{document.assistant}}</div>
+            <details >
+              <summary>Retrieved Document</summary>
+              <div v-for="field in Object.keys(document)" :key="field" >
+                <div v-if="field !== '_id' && field !== 'imgUrl' && field !== 'assistant'" class="field"><b>{{ field }} : </b>{{ document[field] }}</div>
+              </div>
+            </details>
+            
+          </div>
           </div>
         </div>
       </div>
@@ -29,12 +40,18 @@
       <textarea v-model="newMessage" placeholder="Type a message..."></textarea>
       <!-- Send button to send the message -->
       <div class="send-container" >
-        <button id="sendButton" @click="sendMessage">Send</button>
+        <button id="sendButton" @click="sendMessage" title="Send Message">Send</button>
         <!-- File input hidden; click on ➕ button to trigger it -->
-        <input type="file" ref="fileInput" @change="onFileChange" style="display: none" />
-        <button @click="triggerFileInput">➕</button>
+        <input type="file" ref="fileInput" @change="onFileChange" accept="image/jpeg, image/png, image/gif" style="display: none"  />
+        <button @click="triggerFileInput" title="Image upload">📎</button>
        </div>
     </div>
+    </div>
+    <iframe :src="sideUrl" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+    <!-- PDF iframe display link : https://soundscout.s3.eu-central-1.amazonaws.com/The+CLUE.pdf-->
+   
+    
   </div>
 </template>
 
@@ -56,7 +73,7 @@ export default {
     const messages = ref([
       {
         id: 1,
-        text: `Welcome ${props.player.name}, I'm the investigation database assistant chatbot. Please Download your kit from and start investigating.`,
+        text: `Welcome ${props.player.name}, I'm the investigation database assistant chatbot. Please Download  and unzip your kit from and start investigating. Remember to either message me or upload files using the attachment button below.`,
         link: "https://soundscout.s3.eu-central-1.amazonaws.com/evidence.zip",
         type : 'text',
         sender: 'AI',
@@ -66,6 +83,7 @@ export default {
     const fileInput = ref(null); // Reference to the file input element
     let medalAward = false;
     let loading = ref(false);
+    let sideUrl=ref(process.env.VUE_APP_SIDE_IFRAME)
     const chatMessages = ref(null);
 
     const scrollToBottom = () => {
@@ -336,6 +354,7 @@ export default {
 
     return {
       messages,
+      sideUrl,
       chatMessages,
       newMessage,
       loading,
@@ -354,10 +373,9 @@ export default {
   display: flex;
   flex-direction: column;
   height: 95vh;
-  max-width: 768px;
+  max-width: 1400px;
   margin: auto;
-  border: 1px solid #ddd;
-  background-color: #f9f9f9;
+
 }
 
 .loading-image {
@@ -371,11 +389,27 @@ export default {
   padding: 10px;
   flex-grow: 1;
 }
+.app-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  height: 100%;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
 
 .message {
   margin-bottom: 10px;
   padding: 10px;
   background-color: #fff;
+  max-width: 1400px;
+  flex-wrap: wrap;
   border-radius: 10px;
   box-shadow: 0 1px 1px rgba(0,0,0,0.1);
 }
@@ -415,6 +449,13 @@ justify-content: flex-start;
   border-top: 1px solid #ddd;
 }
 
+.retrieved-documents{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-start;
+}
+
 .image-uploaded {
   width: 100%;
   height: 200px;
@@ -431,6 +472,12 @@ textarea {
   border: 1px solid #ddd;
   border-radius: 5px;
   resize: none;
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    flex-direction: column;
+  }
 }
 
 button {
