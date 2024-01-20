@@ -20,7 +20,7 @@
           <div class="retrieved-documents">
           <div v-for="document in message.documents" :key="document"  class="" >
             <div class="assistant-message">{{document.assistant}}</div>
-            <details >
+            <details open>
               <summary>Retrieved Document</summary>
               <div v-for="field in Object.keys(document)" :key="field" >
                 <div v-if="field !== '_id' && field !== 'imgUrl' && field !== 'assistant'" class="field"><b>{{ field }} : </b>{{ document[field] }}</div>
@@ -72,8 +72,8 @@ export default {
     //const  player  = props.player
     const messages = ref([
       {
-        id: 1,
-        text: `Welcome ${props.player.name}, I'm the investigation database assistant chatbot. Please Download  and unzip your kit from and start investigating. Remember to either message me or upload files using the attachment button below.`,
+        id: Date.now(), // Unique ID for the message
+        text: `Welcome ${props.player.name}, I'm the investigation database assistant chatbot. Please Download and unzip your kit from and start investigating. Remember to either message me or upload files using the attachment button below.`,
         link: "https://soundscout.s3.eu-central-1.amazonaws.com/evidence.zip",
         type : 'text',
         sender: 'AI',
@@ -156,6 +156,7 @@ export default {
           id: Date.now(), // Unique ID for the message
           text: inputMsg, // The message text
           type : 'text',
+          date : Date.now(),
           sender: 'User'
         });
         loading.value = true;
@@ -207,6 +208,7 @@ export default {
       messages.value.push({
           id: Date.now(), // Unique ID for the message
           text: 'Error sending message... ' + error.message, // The message text
+          date : Date.now(),
           type : 'text',
           sender: 'AI'
         });
@@ -230,6 +232,7 @@ export default {
         messages.value.push({
           id: Date.now(), // Unique ID for the message
           text: `data:image/png;base64,${medalResponse.data.images[0]}`, // The message text
+          date : Date.now(),
           type : 'image',
           sender: 'AI'
         });
