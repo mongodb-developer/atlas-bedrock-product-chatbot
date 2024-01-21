@@ -7,9 +7,9 @@ Lunch a github codespace conntainer.
 1. Set the needed `.env` file content:
 ```
 VUE_APP_BASE_APP_SERVICE_URL='<your app services endpoint>'
-VUE_APP_SEARCH_ENDPOINT='getImageSearch'
+VUE_APP_SEARCH_ENDPOINT='getSearch'
 VUE_APP_MEDAL_ENDPOINT='generateMedal'
-VUE_APP_REGISTER_ENDPOINT='registerPlayer'
+VUE_APP_REGISTER_ENDPOINT='registerUser'
 VUE_APP_SAVE_CHATS_ENDPOINT='saveChats'
 VUE_APP_GET_CHATS_ENDPOINT='getChats'
 ##VUE_APP_SIDE_IFRAME='https://charts.mongodb.com/charts-fsidemo-ubsdv/embed/charts?id=65a67383-010f-4c3d-81b7-7cf19ca7000b&maxDataAge=3600&theme=light&autoRefresh=true'
