@@ -73,7 +73,7 @@ export default {
     const messages = ref([
       {
         id: Date.now(), // Unique ID for the message
-        text: `Welcome ${props.player.name}, I'm the investigation database assistant chatbot. Please Download and unzip your kit from and start investigating. Remember to either message me or upload files using the attachment button below.`,
+        text: `Welcome ${props.player.name}, I'm the investigation database assistant chatbot. Please Download and unzip your kit from the link here and start investigating. Remember to either message me or upload files using the attachment button below.`,
         link: "https://soundscout.s3.eu-central-1.amazonaws.com/evidence.zip",
         type : 'text',
         sender: 'AI',
