@@ -154,7 +154,7 @@
     "$oid": "6587e2e1d3b0a9b21161ab16"
   },
   "name": "Additional forensics",
-  "details": "silver bracelet"
+  "description": "silver bracelet"
 },
 {
   "_id": {
@@ -173,5 +173,5 @@
     "$oid": "658d36ecddda46e5bdb90a6b"
   },
   "name": "Additional forensics",
-  "details": "keys"
+  "description": "keys"
 }]
