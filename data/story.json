@@ -62,7 +62,7 @@
     "Maybe lets search the 'Silver Bracelet' finding"
   ],
   "targetObjectIds": [
-    "6587e2e1d3b0a9b21161ab16"
+    "6587e26fd3b0a9b21161ab15"
   ],
   "rejection": "The belongings should lead to the suspect that was the criminal",
   "finish": "You found the criminal : suspect5 - Aisha",

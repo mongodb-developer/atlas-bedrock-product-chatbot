@@ -4,7 +4,7 @@
   },
   "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger6.png",
   "name": "Aisha Khan",
-  "description": "Middle-aged South Asian female with wavy hair and an inquisitive expression."
+  "details": "Middle-aged South Asian female with wavy hair and an inquisitive expression."
 },
 {
   "_id": {
@@ -12,7 +12,7 @@
   },
   "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger1.png",
   "name": "John Doe",
-  "description": "Middle-aged Caucasian male with short hair and a stern expression."
+  "details": "Middle-aged Caucasian male with short hair and a stern expression."
 },
 {
   "_id": {
@@ -20,7 +20,7 @@
   },
   "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger2.png",
   "name": "Jane Smith",
-  "description": "Young Black female with curly hair and a thoughtful expression."
+  "details": "Young Black female with curly hair and a thoughtful expression."
 },
 {
   "_id": {
@@ -28,7 +28,7 @@
   },
   "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger3.png",
   "name": "Carlos Gomez",
-  "description": "Elderly Hispanic male with balding hair and a friendly expression."
+  "details": "Elderly Hispanic male with balding hair and a friendly expression."
 },
 {
   "_id": {
@@ -36,7 +36,7 @@
   },
   "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger4.png",
   "name": "Ling Chen",
-  "description": "Young Asian female with long straight hair and a serious expression."
+  "details": "Young Asian female with long straight hair and a serious expression."
 },
 {
   "_id": {
@@ -44,7 +44,7 @@
   },
   "imgUrl": "https://soundscout.s3.eu-central-1.amazonaws.com/finger5.png",
   "name": "Mark Johnson",
-  "description": "Tall Caucasian male with medium-length hair and a confident expression."
+  "details": "Tall Caucasian male with medium-length hair and a confident expression."
 },
 {
   "_id": {
@@ -153,7 +153,7 @@
   "_id": {
     "$oid": "6587e2e1d3b0a9b21161ab16"
   },
-  "name": "Additional forensics",
+  "name": "incriminate Evidence!",
   "description": "silver bracelet"
 },
 {
