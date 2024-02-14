@@ -1,28 +1,26 @@
 <template>
   <div id="app">
-    <PlayerRegistration v-if="!player" @setPlayer="setPlayer"/>
-    <MainChat v-if="player" :player="player"/>
+    <MainChat :username="username"/>
   </div>
 </template>
+
 <script>
 import MainChat from './components/MainChat.vue'
-import PlayerRegistration from './components/PlayerRegistration.vue'
+
 export default {
+  name: 'App',
   components: {
-    PlayerRegistration,
     MainChat
   },
   data() {
     return {
-      player: null
-    };
-  },
-  methods: {
-    setPlayer(playerData) {
-      this.player = playerData;
+      username: null
     }
+  },
+  created() {
+    this.username = window.prompt("Please enter your name:");
   }
-};
+}
 </script>
 
 <style>
