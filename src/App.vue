@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <MainChat :username="username"/>
+    <MainChat :player="username"/>
   </div>
 </template>
 
