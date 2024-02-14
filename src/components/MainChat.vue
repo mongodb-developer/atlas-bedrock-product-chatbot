@@ -7,7 +7,7 @@
      
       <div class="chat-container">
         <div class="header">
-      <h2>Investigation Database Assistant</h2>
+      <h2>Product Catalog Database Assistant</h2>
     </div>
     <hr>
     <div class="chat-messages" ref="chatMessages">
