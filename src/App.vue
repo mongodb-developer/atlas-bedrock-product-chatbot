@@ -14,11 +14,8 @@ export default {
   },
   data() {
     return {
-      username: null
+      username: {"name" : prompt("Please insert your name...")}
     }
-  },
-  created() {
-    this.username = window.prompt("Please enter your name:");
   }
 }
 </script>
